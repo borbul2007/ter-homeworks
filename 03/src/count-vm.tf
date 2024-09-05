@@ -2,14 +2,15 @@ data "yandex_compute_image" "ubuntu" {
   family = var.vm_yandex_compute_image_family
 }
 
-resource "yandex_compute_instance" "platform-web" {
-  name        = "${local.name}-web"
-  platform_id = var.vm_web_yandex_compute_instance_platform_id
+resource "yandex_compute_instance" "web" {
+  count = 2
+  name  = "${local.name}-web-${count.index}"
+  platform_id = var.vm_yandex_compute_instance_platform_id
   zone        = var.default_zone-a
   resources {
-    cores         = var.vms_resources.web.cores
-    memory        = var.vms_resources.web.memory
-    core_fraction = var.vms_resources.web.core_fraction
+    cores         = var.vm_resources.cores
+    memory        = var.vm_resources.memory
+    core_fraction = var.vm_resources.web.core_fraction
   }
   boot_disk {
     initialize_params {
