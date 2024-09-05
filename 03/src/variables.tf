@@ -55,7 +55,7 @@ variable "vm_yandex_compute_instance_resources_core_fraction" {
     default = 5
 }
 
-variable "vm_web_yandex_compute_image_family" {
+variable "vm_yandex_compute_image_family" {
     type    = string
     default = "ubuntu-2004-lts"
 }
