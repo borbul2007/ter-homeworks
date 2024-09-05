@@ -1,4 +1,3 @@
-###cloud vars
 variable "token" {
   type        = string
   description = "OAuth-token; https://cloud.yandex.ru/docs/iam/concepts/authorization/oauth-token"
@@ -33,7 +32,7 @@ variable "vpc_name" {
 
 variable "vm_yandex_compute_instance_name" {
     type    = string
-    default = "netology-develop-platform-web"
+    default = "web"
 }
 
 variable "vm_yandex_compute_instance_platform_id" {

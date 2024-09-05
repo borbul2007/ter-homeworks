@@ -4,13 +4,13 @@ data "yandex_compute_image" "ubuntu" {
 
 resource "yandex_compute_instance" "web" {
   count = 2
-  name  = "${local.name}-web-${count.index}"
+  name  = "var.vm_yandex_compute_instance_name-${count.index}"
   platform_id = var.vm_yandex_compute_instance_platform_id
-  zone        = var.default_zone-a
+  zone        = var.default_zone
   resources {
-    cores         = var.vm_resources.cores
-    memory        = var.vm_resources.memory
-    core_fraction = var.vm_resources.web.core_fraction
+    cores         = var.vm_yandex_compute_instance_resources_cores
+    memory        = var.vm_yandex_compute_instance_resources_memory
+    core_fraction = var.vm_yandex_compute_instance_resources_core_fraction
   }
   boot_disk {
     initialize_params {
@@ -21,9 +21,11 @@ resource "yandex_compute_instance" "web" {
     preemptible = true
   }
   network_interface {
-    subnet_id = yandex_vpc_subnet.develop-a.id
-    nat       = true
+    subnet_id          = yandex_vpc_subnet.develop.id
+    security_group_ids = "example_dynamic"
+    nat                = true
   }
+
   metadata = {
     serial-port-enable = var.metadata.vm.serial-port-enable
     ssh-keys           = var.metadata.vm.ssh-keys
