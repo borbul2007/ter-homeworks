@@ -27,6 +27,6 @@ resource "yandex_compute_instance" "web" {
   }
 
   metadata = {
-    ssh-keys = "ubuntu:${vms_ssh_root_key}"
+    ssh-keys = "ubuntu:${var.vms_ssh_root_key}"
   }
 }
