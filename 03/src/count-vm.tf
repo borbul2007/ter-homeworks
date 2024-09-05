@@ -21,8 +21,8 @@ resource "yandex_compute_instance" "web" {
     preemptible = true
   }
   network_interface {
-    subnet_id          = yandex_vpc_subnet.develop.id
-    security_group_ids = yandex_vpc_security_group.example.network_id
+    subnet_id          = var.yandex_vpc_subnet.develop.id
+    security_group_ids = var.yandex_vpc_security_group.example.network_id
     nat                = true
   }
 
