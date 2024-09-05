@@ -22,12 +22,11 @@ resource "yandex_compute_instance" "web" {
   }
   network_interface {
     subnet_id          = yandex_vpc_subnet.develop.id
-    security_group_ids = "example_dynamic"
+#    security_group_ids = "example_dynamic"
     nat                = true
   }
 
   metadata = {
-    serial-port-enable = var.metadata.vm.serial-port-enable
-    ssh-keys           = var.metadata.vm.ssh-keys
+    ssh-keys = "ubuntu:${vms_ssh_root_key}"
   }
 }
