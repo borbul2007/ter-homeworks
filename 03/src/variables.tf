@@ -30,3 +30,34 @@ variable "vpc_name" {
   default     = "develop"
   description = "VPC network&subnet name"
 }
+
+variable "vm_yandex_compute_instance_name" {
+    type    = string
+    default = "netology-develop-platform-web"
+}
+
+variable "vm_yandex_compute_instance_platform_id" {
+    type    = string
+    default = "standard-v1"
+}
+
+variable "vm_yandex_compute_instance_resources_cores" {
+    type    = number
+    default = 1
+}
+
+variable "vm_yandex_compute_instance_resources_memory" {
+    type    = number
+    default = 1
+}
+
+variable "vm_yandex_compute_instance_resources_core_fraction" {
+    type    = number
+    default = 5
+}
+
+variable "vms_ssh_root_key" {
+  type        = string
+  default     = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJbFQwlXpyF5D6x8yiptgTG/Are3CfQ94MRINvltKRs2 root@nt.ksob.lan"
+  description = "ssh-keygen -t ed25519"
+}
