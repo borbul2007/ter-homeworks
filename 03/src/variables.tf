@@ -55,6 +55,11 @@ variable "vm_yandex_compute_instance_resources_core_fraction" {
     default = 5
 }
 
+variable "vm_web_yandex_compute_image_family" {
+    type    = string
+    default = "ubuntu-2004-lts"
+}
+
 variable "vms_ssh_root_key" {
   type        = string
   default     = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJbFQwlXpyF5D6x8yiptgTG/Are3CfQ94MRINvltKRs2 root@nt.ksob.lan"
