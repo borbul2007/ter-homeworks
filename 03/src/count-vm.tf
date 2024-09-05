@@ -4,7 +4,7 @@ data "yandex_compute_image" "ubuntu" {
 
 resource "yandex_compute_instance" "web" {
   count = 2
-  name  = "var.vm_yandex_compute_instance_name-${count.index}"
+  name  = "${var.vm_yandex_compute_instance_name}-${count.index}"
   platform_id = var.vm_yandex_compute_instance_platform_id
   zone        = var.default_zone
   resources {
