@@ -30,6 +30,7 @@ variable "vpc_name" {
   description = "VPC network&subnet name"
 }
 
+
 variable "vm_yandex_compute_instance_name" {
     type    = string
     default = "web"
