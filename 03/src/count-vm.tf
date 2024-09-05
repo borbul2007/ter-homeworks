@@ -22,7 +22,7 @@ resource "yandex_compute_instance" "web" {
   }
   network_interface {
     subnet_id          = yandex_vpc_subnet.develop.id
-    security_group_ids = "${yandex_vpc_security_group.example.id}"
+    security_group_ids = "enp8b61in2vb37jit039"
     nat                = true
   }
 
