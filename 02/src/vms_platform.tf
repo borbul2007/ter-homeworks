@@ -131,7 +131,7 @@ variable "vm_db_yandex_compute_instance_resources_core_fraction" {
 variable "metadata" {
   type = map(object({
     serial-port-enable = number
-    ssh-keys           =  string
+    ssh-keys           = string
   }))  
   default = {
     "vm" = {

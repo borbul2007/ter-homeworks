@@ -25,3 +25,17 @@ variable "vms_ssh_root_key" {
   type        = string
   default     = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJbFQwlXpyF5D6x8yiptgTG/Are3CfQ94MRINvltKRs2 root@nt.ksob.lan"
 }
+
+variable "each_vm" {
+  type = list(object({ vm_name=string, cpu=number, ram=number, disk_volume=number }))
+  main = {
+    vm_name = main
+    cpu     = 2
+    ram     = 2
+  },
+  replica = {
+    vm_name = replica
+    cpu     = 2
+    ram     = 1
+  }
+}
