@@ -4,7 +4,7 @@ data "yandex_compute_image" "ubuntu" {
 
 resource "yandex_compute_instance" "db" {
   for_each    = var.each_vm
-  name        = "db-${each.key}"
+  name        = "${each.key}"
   platform_id = "standard-v1"
   zone        = var.default_zone
   resources {
