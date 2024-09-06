@@ -4,12 +4,12 @@ data "yandex_compute_image" "ubuntu" {
 
 resource "yandex_compute_instance" "db" {
   for_each    = var.each_vm
-  name        = each.value["vm_name"]
+  name        = each.value.vm_name
   platform_id = "standard-v1"
   zone        = var.default_zone
   resources {
-    cores         = each.value[cpu]
-    memory        = each.value[ram]
+    cores         = each.value.cpu
+    memory        = each.value.ram
     core_fraction = 5
   }
   boot_disk {
