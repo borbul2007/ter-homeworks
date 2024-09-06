@@ -35,13 +35,13 @@ variable "each_vm" {
   }))
   default = {
     main = {
-      vm_name     = main
+      vm_name     = "main"
       cpu         = 2
       ram         = 2
       disk_volume = 10
     },  
     replica = {
-      vm_name     = replica
+      vm_name     = "replica"
       cpu         = 2
       ram         = 1
       disk_volume = 20
