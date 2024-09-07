@@ -2,7 +2,7 @@ data "yandex_compute_image" "ubuntu" {
   family = "ubuntu-2004-lts"
 }
 
-resource "yandex_compute_disk" "storage-disk" {
+resource "yandex_compute_disk" {
   count = 3
   name  = "storage-disk-${count.index}"
   type  = "network-hdd"
