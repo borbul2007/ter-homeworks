@@ -26,7 +26,6 @@ variable "vms_ssh_root_key" {
   default     = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJbFQwlXpyF5D6x8yiptgTG/Are3CfQ94MRINvltKRs2 root@nt.ksob.lan"
 }
 
-/*
 variable "each_vm" {
   type = set(object({
     name        = string,
@@ -34,6 +33,17 @@ variable "each_vm" {
     ram         = number,
     disk_volume = number
   }))
-  default = {[ name = "main", cpu = 2, ram = 2, disk_volume = 10 ], [ name = "replica", cpu = 2, ram = 1, disk_volume = 20 ]}
+  default = [
+    { 
+       name = "main"
+       cpu = 2, ram = 2
+       disk_volume = 10
+    },
+    {
+       name = "replica"
+       cpu = 2
+       ram = 1
+       disk_volume = 20
+    }
+  ]  
 }
-*/
