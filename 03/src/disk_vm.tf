@@ -27,13 +27,13 @@ resource "yandex_compute_instance" "storage" {
     preemptible = true
   }
   network_interface {
-    subnet_id          = yandex_vpc_subnet.develop.id
-    nat                = true
+    subnet_id = yandex_vpc_subnet.develop.id
+    nat       = true
   }
   dynamic secondary_disk {
     for_each = yandex_compute_disk.storage-disk
     content {
-      disk_id = lookup(disk_id.value, "disk_id", null)
+      disk_id = lookup(secondary_disk.value, "disk_id", null)
     }
   }
   metadata = {
