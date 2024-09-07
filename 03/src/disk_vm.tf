@@ -31,7 +31,7 @@ resource "yandex_compute_instance" "storage" {
     nat                = true
   }
   dynamic secondary_disk {
-    for_each = var.yandex_compute_disk.storage-disk
+    for_each = yandex_compute_disk.storage-disk
     content {
       image_id = lookup(image_id.value, "image_id", null)
     }
