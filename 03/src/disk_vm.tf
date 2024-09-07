@@ -33,7 +33,7 @@ resource "yandex_compute_instance" "storage" {
   dynamic secondary_disk {
     for_each = yandex_compute_disk.storage-disk
     content {
-      disk_id = lookup(secondary_disk.storage-disk-.value, "disk_id", null)
+      disk_id = lookup(secondary_disk.value, "disk_id", null)
     }
   }
   metadata = {
