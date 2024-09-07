@@ -27,21 +27,24 @@ variable "vms_ssh_root_key" {
 }
 
 variable "each_vm" {
-  type = map(object({
+  type = set(object({
+    name        = string,
     cpu         = number,
     ram         = number,
     disk_volume = number
   }))
   default = {
-    "main" = {
+    [
+      name        = "main"
       cpu         = 2
       ram         = 2
       disk_volume = 10
-    },  
-    "replica" = {
+    ],  
+    [
+      name        = "replica"
       cpu         = 2
       ram         = 1
       disk_volume = 20
-    }
+    ]
   }
 }
