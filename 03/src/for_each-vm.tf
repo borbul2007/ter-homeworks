@@ -25,7 +25,7 @@ resource "yandex_compute_instance" "db" {
     }
   }
   secondary_disk {
-    disk_id = yandex_compute_disk.${each.value.name}-disk.id
+    disk_id = yandex_compute_disk.disk.${each.value.name}-disk.id
   }
   scheduling_policy {
     preemptible = true
