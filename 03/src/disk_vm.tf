@@ -26,8 +26,12 @@ resource "yandex_compute_instance" "storage" {
     subnet_id          = yandex_vpc_subnet.develop.id
     nat                = true
   }
-  
-  dynamic secondary_disk{..}
+  dynamic secondary_disk {
+    for_each = var.yandex_compute_disk
+    content {
+      image_id = lookup(image_id.value, "image_id", null)
+    }
+  }
   metadata = {
     serial-port-enable = 1
     ssh-keys           = "ubuntu:${var.vms_ssh_root_key}"
