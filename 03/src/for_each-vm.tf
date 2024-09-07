@@ -1,7 +1,3 @@
-data "yandex_compute_image" "ubuntu" {
-  family = "ubuntu-2004-lts"
-}
-
 resource "yandex_compute_disk" "disk" {
   for_each    = var.each_vm
   name       = "${each.value.name}-disk"
@@ -24,9 +20,9 @@ resource "yandex_compute_instance" "db" {
       image_id = data.yandex_compute_image.ubuntu.image_id
     }
   }
-  secondary_disk {
-    disk_id = yandex_compute_disk.disk.${each.value.name}-disk.id
-  }
+#  secondary_disk {
+#    disk_id = yandex_compute_disk.disk.${each.value.name}-disk.id
+#  }
   scheduling_policy {
     preemptible = true
   }
