@@ -33,7 +33,7 @@ resource "yandex_compute_instance" "storage" {
     }
   }
   metadata = {
-    serial-port-enable = var.metadata.vm.serial-port-enable
+    serial-port-enable = 1
     ssh-keys           = local.ssh_pub_key
   }
 }

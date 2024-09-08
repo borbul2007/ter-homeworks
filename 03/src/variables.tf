@@ -21,20 +21,6 @@ variable "default_cidr" {
   default     = ["10.0.1.0/24"]
 }
 
-variable "metadata" {
-  type = map(object({
-    serial-port-enable = number
-    ssh-keys           = string
-  }))  
-  default = {
-    "vm" = {
-      serial-port-enable = 1
-      ssh-keys           = ""
-    }  
-  }
-  description = "metadata"
-}
-
 variable "each_vm" {
   type = list(object({
     vm_name     = string
