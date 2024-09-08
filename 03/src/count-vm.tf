@@ -24,6 +24,6 @@ resource "yandex_compute_instance" "web" {
   }
   metadata = {
     serial-port-enable = 1
-    ssh-keys           = "ubuntu:local.ssh_pub_key"
+    ssh-keys           = local.ssh_pub_key
   }
 }
