@@ -14,10 +14,10 @@ ${host["name"]}   ansible_host=${host["network_interface"][0]["nat_ip_address"]}
 %{endfor ~}
 %{~ endif ~}
 
-%{~ if length(storage) > 0}
-[storage]
+#%{~ if length(storage) > 0}
+#[storage]
 
 #%{~ for host in storage ~}
 #${host["name"]}   ansible_host=${host["network_interface"][0]["nat_ip_address"]} fqdn=${host["fqdn"]}
 #%{endfor ~}
-%{~ endif ~}
+#%{~ endif ~}
