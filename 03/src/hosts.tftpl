@@ -1,23 +1,23 @@
 %{if length(webservers) > 0}
 [webservers]
 
-%{for i in webservers}
-${i["name"]}   ansible_host=${i["network_interface"][0]["nat_ip_address"]}
+%{for host in webservers}
+${host["name"]}   ansible_host=${host["network_interface"][0]["nat_ip_address"]}
 %{endfor}
 %{endif}
 
 %{if length(db) > 0}
-[db]
+[databases]
 
-%{for i in db}
-${i["name"]}   ansible_host=${i["network_interface"][0]["nat_ip_address"]}
+%{for host in db}
+${host["name"]}   ansible_host=${host["network_interface"][0]["nat_ip_address"]}
 %{endfor}
 %{endif}
 
 %{if length(storage) > 0}
 [storage]
 
-%{for i in storage}
-${i["name"]}   ansible_host=${i["network_interface"][0]["nat_ip_address"]}
+%{for host in storage}
+${host["name"]}   ansible_host=${host["network_interface"][0]["nat_ip_address"]}
 %{endfor}
 %{endif}
