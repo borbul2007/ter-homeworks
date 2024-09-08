@@ -2,7 +2,7 @@
 [webservers]
 
 %{~ for host in webservers ~}
-${host["name"]}   ansible_host=${host["network_interface"][0]["nat_ip_address"]} fqdn=${host["fqdn"]}
+${host["name"]} ansible_host=${host["network_interface"][0]["nat_ip_address"]} fqdn=${host["fqdn"]}
 %{endfor ~}
 %{~ endif ~}
 
@@ -10,12 +10,12 @@ ${host["name"]}   ansible_host=${host["network_interface"][0]["nat_ip_address"]}
 [databases]
 
 %{~ for host in db ~}
-${host["name"]}   ansible_host=${host["network_interface"][0]["nat_ip_address"]} fqdn=${host["fqdn"]}
+${host["name"]} ansible_host=${host["network_interface"][0]["nat_ip_address"]} fqdn=${host["fqdn"]}
 %{endfor ~}
 %{~ endif ~}
 
-%{~ if length(storage) > 0}
+%{~ if length(storage) > 0 ~}
 [storage]
 
-${storage["name"]} fqdn=${storage["fqdn"]}
+${storage["name"]} ansible_host=${storage["network_interface"]["nat_ip_address"]} fqdn=${storage["fqdn"]}
 %{~ endif ~}
