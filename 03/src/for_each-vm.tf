@@ -22,9 +22,9 @@ resource "yandex_compute_instance" "db" {
       image_id = data.yandex_compute_image.ubuntu.image_id
     }
   }
-#  secondary_disk {
-#    disk_id = yandex_compute_disk.disk.${each.value.vm_name}-disk.id
-#  }
+  secondary_disk {
+    disk_id = yandex_compute_disk.disk.${each.value.vm_name}-disk.id
+  }
   scheduling_policy {
     preemptible = true
   }
