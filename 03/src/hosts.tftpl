@@ -17,4 +17,7 @@ ${host["name"]}   ansible_host=${host["network_interface"][0]["nat_ip_address"]}
 %{~ if length(storage) > 0}
 [storage]
 
+%{~ for host in db ~}
+${host["name"]}   ansible_host=${host["network_interface"][0]["nat_ip_address"]}
+%{endfor ~}
 %{~ endif ~}
