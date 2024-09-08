@@ -27,7 +27,7 @@ variable "vms_ssh_root_key" {
 }
 
 variable "each_vm" {
-  type = set(object({
+  type = list(object({
     name        = string,
     cpu         = number,
     ram         = number,
