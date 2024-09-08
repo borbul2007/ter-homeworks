@@ -29,7 +29,7 @@ variable "metadata" {
   default = {
     "vm" = {
       serial-port-enable = 1
-      ssh-keys           = local.vms_ssh_root_key
+      ssh-keys           = local.vm_ssh_pub_key
     }  
   }
   description = "metadata"

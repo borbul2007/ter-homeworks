@@ -1,3 +1,3 @@
 locals {
-  vms_ssh_root_key = "ubuntu:file(~/.ssh/id_ed25519.pub)"
+  vm_ssh_pub_key = "ubuntu:file(~/.ssh/id_ed25519.pub)"
 }
