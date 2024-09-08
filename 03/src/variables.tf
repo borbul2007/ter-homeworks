@@ -21,9 +21,18 @@ variable "default_cidr" {
   default     = ["10.0.1.0/24"]
 }
 
-variable "vms_ssh_root_key" {
-  type        = string
-  default     = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJbFQwlXpyF5D6x8yiptgTG/Are3CfQ94MRINvltKRs2 root@nt.ksob.lan"
+variable "metadata" {
+  type = map(object({
+    serial-port-enable = number
+    ssh-keys           = string
+  }))  
+  default = {
+    "vm" = {
+      serial-port-enable = 1
+      ssh-keys           = ${vms_ssh_root_key}
+    }  
+  }
+  description = "metadata"
 }
 
 variable "each_vm" {
