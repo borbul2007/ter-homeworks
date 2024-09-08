@@ -7,12 +7,12 @@ resource "yandex_compute_disk" "disk" {
 
 resource "yandex_compute_instance" "db" {
   for_each    = var.each_vm
-  name        = each.key.name
+  name        = each.value.name
   platform_id = "standard-v1"
   zone        = var.default_zone
   resources {
-    cores         = each.key.cpu
-    memory        = each.key.ram
+    cores         = each.value.cpu
+    memory        = each.value.ram
     core_fraction = 5
   }
   boot_disk {
@@ -21,7 +21,7 @@ resource "yandex_compute_instance" "db" {
     }
   }
 #  secondary_disk {
-#    disk_id = yandex_compute_disk.disk.${each.key.name}-disk.id
+#    disk_id = yandex_compute_disk.disk.${each.value.name}-disk.id
 #  }
   scheduling_policy {
     preemptible = true
