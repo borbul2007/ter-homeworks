@@ -1,8 +1,8 @@
 resource "yandex_compute_disk" "disk" {
   for_each    = var.each_vm
-  name       = "${each.key.name}-disk"
+  name       = "${each.value.name}-disk"
   type       = "network-hdd"
-  size       = each.key.disk_volume
+  size       = each.value.disk_volume
 }
 
 resource "yandex_compute_instance" "db" {
