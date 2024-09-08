@@ -2,6 +2,7 @@ resource "yandex_compute_instance" "web" {
   count       = 2
   depends_on  = [yandex_compute_instance.db]
   name        = "web-${count.index+1}"
+  hostname    = "web-${count.index+1}"
   platform_id = "standard-v1"
   zone        = var.default_zone
   resources {
