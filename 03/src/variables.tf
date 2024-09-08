@@ -29,7 +29,7 @@ variable "metadata" {
   default = {
     "vm" = {
       serial-port-enable = 1
-      ssh-keys           = "ubuntu:ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJbFQwlXpyF5D6x8yiptgTG/Are3CfQ94MRINvltKRs2 root@nt.ksob.lan"
+      ssh-keys           = ""
     }  
   }
   description = "metadata"
