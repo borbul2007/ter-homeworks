@@ -1,7 +1,7 @@
-%{~ if length(webservers) > 0 ~}
+%{~ if length(webservers) > 0}
 [webservers]
 
-%{~ for host in webservers}
+%{~ for host in webservers ~}
 ${host["name"]}   ansible_host=${host["network_interface"][0]["nat_ip_address"]}
 %{endfor ~}
 %{~ endif ~}
