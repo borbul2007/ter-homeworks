@@ -1,6 +1,6 @@
 resource "yandex_compute_disk" "disk" {
 #  for_each   = var.each_vm
-  for_each   = {for i in var.each_vm: vm_name => i}
+  for_each   = {for i in var.each_vm: i.vm_name => i}
   name       = "${each.value.vm_name}-disk"
   type       = "network-hdd"
   size       = each.value.disk_volume
@@ -8,7 +8,7 @@ resource "yandex_compute_disk" "disk" {
 
 resource "yandex_compute_instance" "db" {
 #  for_each    = var.each_vm
-  for_each   = {for i in var.each_vm: vm_name => i}
+  for_each   = {for i in var.each_vm: i.vm_name => i}
   name        = each.value.vm_name
   platform_id = "standard-v1"
   zone        = var.default_zone
