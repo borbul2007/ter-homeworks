@@ -23,8 +23,9 @@ resource "yandex_compute_instance" "storage" {
     preemptible = true
   }
   network_interface {
-    subnet_id = yandex_vpc_subnet.develop.id
-    nat       = true
+    subnet_id          = yandex_vpc_subnet.develop.id
+    security_group_ids = [ yandex_vpc_security_group.example.id ]
+    nat                = true
   }
   dynamic secondary_disk {
     for_each = yandex_compute_disk.storage-disk
