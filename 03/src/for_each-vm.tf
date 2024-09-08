@@ -8,6 +8,7 @@ resource "yandex_compute_disk" "disk" {
 resource "yandex_compute_instance" "db" {
   for_each   = {for vm in var.each_vm: vm.vm_name => vm}
   name        = each.value.vm_name
+  hostname    = each.value.vm_name
   platform_id = "standard-v1"
   zone        = var.default_zone
   resources {
