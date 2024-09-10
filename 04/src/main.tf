@@ -11,7 +11,7 @@ resource "yandex_vpc_subnet" "develop" {
 data "template_file" "cloudinit" {
   template = file("./cloud-init.yml")
   vars = {
-    ssh_public_key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGiVcfW8Wa/DxbBNzmQcwn7hJOj7ji9eoTpFakVnY/AI"
+    ssh_public_key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJbFQwlXpyF5D6x8yiptgTG/Are3CfQ94MRINvltKRs2"
   }
 }
 
