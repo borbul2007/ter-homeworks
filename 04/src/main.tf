@@ -15,5 +15,5 @@ data template_file "userdata" {
   }
 }
 
-module.analytics_vm {./source}
-module.marketing_vm {./source}
+module.analytics_vm {source = ./}
+module.marketing_vm {source = ./}
