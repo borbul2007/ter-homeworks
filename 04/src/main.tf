@@ -9,7 +9,7 @@ resource "yandex_vpc_subnet" "develop" {
 }
 
 data template_file "userdata" {
-  template = file("${path.module}/cloud-init.yaml")
+  template = file("${path.module}/cloud-init.yml")
   vars = {
     ssh_public_key = tolist("ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGiVcfW8Wa/DxbBNzmQcwn7hJOj7ji9eoTpFakVnY/AI")
   }
