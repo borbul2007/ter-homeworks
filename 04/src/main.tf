@@ -15,7 +15,7 @@ data "template_file" "cloudinit" {
   }
 }
 
-module analytics-vm" {
+module "analytics-vm" {
   source         = "git::https://github.com/udjin10/yandex_compute_instance.git?ref=main"
   network_id     = yandex_vpc_network.develop.id
   subnet_zones   = ["ru-central1-a"]
