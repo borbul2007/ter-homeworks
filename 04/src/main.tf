@@ -5,6 +5,11 @@ data "template_file" "cloudinit" {
   }
 }
 
+#создаем облачную сеть
+resource "yandex_vpc_network" "develop" {
+  name = "develop"
+}
+
 #создаем подсеть
 resource "yandex_vpc_subnet" "develop_a" {
   name           = "develop-ru-central1-a"
