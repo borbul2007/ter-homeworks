@@ -14,3 +14,6 @@ data template_file "userdata" {
     ssh_public_key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGiVcfW8Wa/DxbBNzmQcwn7hJOj7ji9eoTpFakVnY/AI"
   }
 }
+
+module.analytics_vm {./source}
+module.marketing_vm {./source}
