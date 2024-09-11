@@ -65,6 +65,7 @@ module "marketing_vm" {
     user-data          = data.template_file.cloudinit.rendered #Для демонстрации №3
     serial-port-enable = 1
   }
+}
 
   module "vpc_dev" {
     source   = "./vpc"
@@ -72,4 +73,3 @@ module "marketing_vm" {
     zone     = "ru-central1-a"
     cidr     = "10.0.1.0/24"
   }
-}
