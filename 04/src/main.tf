@@ -67,9 +67,9 @@ module "marketing_vm" {
   }
 
   module "vpc_dev" {
-    source       = "./"
-    env_name     = "develop"
-    zone = "ru-central1-a"
-    cidr = "10.0.1.0/24"
+    source   = "./"
+    env_name = "develop"
+    zone     = "ru-central1-a"
+    cidr     = "10.0.1.0/24"
   }
 }
