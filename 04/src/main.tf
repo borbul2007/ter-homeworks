@@ -67,7 +67,7 @@ module "marketing_vm" {
   }
 }
 
-module.vpc_dev {
+module "vpc_dev" {
   source   = "./vpc"
   env_name = "develop"
   zone     = "ru-central1-a"
