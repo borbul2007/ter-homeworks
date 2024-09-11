@@ -2,23 +2,9 @@ resource "yandex_vpc_network" "vpc_dev" {
   name = "dev"
 }
 
-resource "yandex_vpc_subnet" "vpc_dev" {
-  name           = "${var.env_name}"
-  zone           = "${var.zone}"
+resource "yandex_vpc_subnet" "vpc_subnet_dev" {
+  name           = var.env_name
+  zone           = var.zone
   network_id     = yandex_vpc_network.vpc_dev.id
-  v4_cidr_blocks = "${var.cidr}"
-}
-
-variable "env_name" {
-  type = string
-}
-variable "zone" {
-  type = string
-}
-variable "cidr" {
-  type = string
-}
-
-output "vpc_subnet" {
-  value=yandex_vpc_subnet.vpc_dev
+  v4_cidr_blocks = var.cidr
 }
