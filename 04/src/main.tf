@@ -47,8 +47,6 @@ module "analytics_vm" {
   }
 }
 
-
-
 module "marketing_vm" {
   source         = "git::https://github.com/udjin10/yandex_compute_instance.git?ref=main"
   env_name       = "stage"
@@ -69,7 +67,6 @@ module "marketing_vm" {
     serial-port-enable = 1
   }
 }
-
 
 module "vpc_dev" {
   source   = "./vpc"
