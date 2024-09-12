@@ -25,7 +25,7 @@ resource "yandex_vpc_subnet" "develop_b" {
   v4_cidr_blocks = ["10.0.2.0/24"]
 }
 
-/*
+
 module "analytics_vm" {
   source         = "git::https://github.com/udjin10/yandex_compute_instance.git?ref=main"
   env_name       = "develop" 
@@ -39,16 +39,16 @@ module "analytics_vm" {
 
   labels = { 
     project = "acanalytics"
-     }
+  }
 
   metadata = {
     user-data          = data.template_file.cloudinit.rendered #Для демонстрации №3
     serial-port-enable = 1
   }
 }
-*/
 
-/*
+
+
 module "marketing_vm" {
   source         = "git::https://github.com/udjin10/yandex_compute_instance.git?ref=main"
   env_name       = "stage"
@@ -69,11 +69,14 @@ module "marketing_vm" {
     serial-port-enable = 1
   }
 }
-*/
+
 
 module "vpc_dev" {
   source   = "./vpc"
   env_name = "develop"
   zone     = "ru-central1-a"
   cidr     = "10.0.1.0/24"
+  token     = var.token
+  cloud_id  = var.cloud_id
+  folder_id = var.folder_id
 }
