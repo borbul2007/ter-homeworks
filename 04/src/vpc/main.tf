@@ -1,3 +1,4 @@
+
 resource "yandex_vpc_network" "vpc_dev" {
   name = "dev"
 }
