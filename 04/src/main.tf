@@ -29,7 +29,7 @@ resource "yandex_vpc_subnet" "develop_b" {
 module "analytics_vm" {
   source         = "git::https://github.com/udjin10/yandex_compute_instance.git?ref=main"
   env_name       = "develop" 
-  network_id     = module.vpc_dev.id
+  network_id     = module.vpc_dev.vpc_network.id
   subnet_zones   = module.vpc_dev.vpc_subnet_dev.zone
   subnet_ids     = module.vpc_dev.vpc_subnet_dev.id
   instance_count = 2
