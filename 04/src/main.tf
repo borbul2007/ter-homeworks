@@ -30,8 +30,8 @@ module "analytics_vm" {
   source         = "git::https://github.com/udjin10/yandex_compute_instance.git?ref=main"
   env_name       = "develop" 
   network_id     = module.vpc_dev.id
-  subnet_zones   = module.vpc_subnet_dev.zone
-  subnet_ids     = module.vpc_subnet_dev.id
+  subnet_zones   = module.vpc_dev.vpc_subnet_dev.zone
+  subnet_ids     = module.vpc_dev.vpc_subnet_dev.id
   instance_count = 2
   image_family   = "ubuntu-2004-lts"
   public_ip      = true
