@@ -1,5 +1,5 @@
 output "vpc_dev" {
-  value = yandex_vpc.vpc_dev
+  value = yandex_vpc_network.vpc_dev
 }
 
 output "vpc_subnet_dev" {
