@@ -1,3 +1,3 @@
-output "out" {
-  value = module.vpc_dev.vpc_subnet_dev.name
+output "vpc_subnet_dev" {
+  value = module.vpc_dev.vpc_subnet_dev
 }
