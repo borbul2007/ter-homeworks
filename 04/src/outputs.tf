@@ -1,4 +1,3 @@
-
 output "out" {
-  value = yandex_vpc_subnet.vpc_subnet_dev.name
+  value = module.vpv.vpc_subnet.vpc_subnet_dev.name
 }
