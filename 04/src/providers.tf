@@ -5,14 +5,6 @@ terraform {
     }
   }
   required_version = "~>1.8.4"
-}
-
-provider "yandex" {
-  token     = var.token
-  cloud_id  = var.cloud_id
-  folder_id = var.folder_id
-  zone      = var.default_zone
-}
 
 backend "s3" {
   endpoint = "storage.yandexcloud.net"
@@ -23,4 +15,13 @@ backend "s3" {
   skip_credentials_validation = true
   dynamodb_endpoint = "https://docapi.serverless.yandexcloud.net/ru-central1/b1guau0af4j7qkg1484e/etn42544b31a743m6357"
   dynamodb_table = "tfstate-lock-develop"
+}
+
+}
+
+provider "yandex" {
+  token     = var.token
+  cloud_id  = var.cloud_id
+  folder_id = var.folder_id
+  zone      = var.default_zone
 }
