@@ -18,7 +18,7 @@ terraform {
     skip_s3_checksum            = true
   
     dynamodb_endpoint = "https://docapi.serverless.yandexcloud.net/ru-central1/b1guau0af4j7qkg1484e/etn42544b31a743m6357"
-    dynamodb_table = "tfstate-lock"
+    dynamodb_table    = "tfstate-lock"
   }
 }
 
