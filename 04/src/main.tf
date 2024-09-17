@@ -1,3 +1,9 @@
+rule "terraform_module_pinned_source" {
+  enabled = true
+  style = "flexible"
+  default_branches = ["main"]
+}
+
 data "template_file" "cloudinit" {
   template = file("./cloud-init.yml")
   vars = {
