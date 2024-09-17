@@ -8,7 +8,7 @@ variable "ip_addr" {
   }
 }
 
-variable "ip_addr_list {
+variable "ip_addr_list" {
   type        = list(string)
   default     = ["192.168.0.1", "192.168.0.2"]
   description = "список ip-адресов"
