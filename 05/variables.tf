@@ -1,4 +1,4 @@
-variable "ip`_addr" {
+variable "ip_addr" {
   type        = string
   default     = "192.168.0.1"
   description = "ip-адрес"
