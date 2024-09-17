@@ -6,6 +6,7 @@ terraform {
     template = {
       source  = "hashicorp/template"
       version = "~> 2"
+    }
   }
   required_version = "~>1.8.4"
  
