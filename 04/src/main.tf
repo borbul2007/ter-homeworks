@@ -1,16 +1,3 @@
-rule "terraform_module_pinned_source" {
-  enabled = false
-  style = "flexible"
-  default_branches = ["main"]
-}
-
-rule "terraform_required_providers" {
-  enabled = false
-  # defaults
-  source = false
-  version = false
-}
-
 data "template_file" "cloudinit" {
   template = file("./cloud-init.yml")
   vars = {
