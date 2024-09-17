@@ -1,6 +1,6 @@
 variable "ip_addr" {
   type        = string
-  default     = "192.168.0.1"
+  default     = "192.168.0.1/32"
   description = "ip-адрес"
   validation {
     condition     = can(cidrhost(var.ip_addr, 0))
